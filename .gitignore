@@ -1,0 +1,5 @@
+__pycache__/
+.ipynb_checkpoints/
+bnn_flux_outputs/*.keras
+bnn_flux_outputs/*.png
+bnn_flux_outputs/*.pdf
