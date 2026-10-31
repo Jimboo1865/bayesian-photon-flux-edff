@@ -72,7 +72,7 @@ def main() -> None:
         gridspec_kw={"height_ratios": [3.3, 1.0], "hspace": 0.06},
     )
 
-    line_color = "#002776"
+    line_color = "#000F4D"
     epistemic_color = "#6baed6"
     total_color = "#fdae61"
 
@@ -89,8 +89,8 @@ def main() -> None:
         axis.plot(
             ref["y"],
             ref["finite_epa_flux"],
-            color="#750000",
-            linewidth=1.9,
+            color="#FA8C19",
+            linewidth=2.1,
             linestyle=(0, (7, 3)),
             label="Numerical finite-size EPA",
             zorder=3,
@@ -110,16 +110,16 @@ def main() -> None:
     axis.set_title("Separated uncertainty sources")
     axis.legend(loc="lower left")
 
-    error_axis.plot(x, percent_epistemic, color="#5B1F73", linewidth=1.6, label="Epistemic")
+    error_axis.plot(x, percent_epistemic, color="#86269B", linewidth=1.6, label="Epistemic")
     error_axis.plot(
         x,
         percent_nuclear,
-        color="#003D16",
+        color="#006B35",
         linestyle="--",
         linewidth=1.6,
         label="Nuclear parameters",
     )
-    error_axis.plot(x, percent_total, color="#6E0446", linewidth=1.6, label="Total")
+    error_axis.plot(x, percent_total, color="#B0006B", linewidth=1.6, label="Total")
     error_axis.set_xlabel("Rapidity proxy y")
     error_axis.set_ylabel("Percent error (%)")
     error_axis.set_ylim(0, max(1.2, float(np.max(percent_total)) * 1.12))
