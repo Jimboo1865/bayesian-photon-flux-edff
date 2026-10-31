@@ -72,7 +72,7 @@ def main() -> None:
         gridspec_kw={"height_ratios": [3.3, 1.0], "hspace": 0.06},
     )
 
-    line_color = "#1f77b4"
+    line_color = "#0046A8"
     epistemic_color = "#6baed6"
     total_color = "#fdae61"
 
@@ -80,27 +80,29 @@ def main() -> None:
         x,
         centre,
         color=line_color,
-        linewidth=1.8,
-        linestyle=(0, (8, 4)),
+        linewidth=2.4,
         label="Surrogate mean",
+        zorder=2,
     )
     if args.reference_csv is not None:
         ref = pd.read_csv(args.reference_csv).sort_values("y")
         axis.plot(
             ref["y"],
             ref["finite_epa_flux"],
-            color="#d62728",
-            linewidth=1.6,
-            linestyle=(6, (8, 4)),
+            color="#D55E00",
+            linewidth=1.9,
+            linestyle=(0, (7, 3)),
             label="Numerical finite-size EPA",
+            zorder=3,
         )
         axis.plot(
             ref["y"],
             ref["edff_flux"],
             color="black",
-            linestyle="--",
-            linewidth=1.2,
+            linestyle=(0, (3.5, 2)),
+            linewidth=1.3,
             label="Analytical EDFF",
+            zorder=3,
         )
     axis.set_yscale("log")
     axis.yaxis.set_minor_formatter(NullFormatter())
@@ -108,15 +110,16 @@ def main() -> None:
     axis.set_title("Separated uncertainty sources")
     axis.legend(loc="lower left")
 
-    error_axis.plot(x, percent_epistemic, color="#9467bd", label="Epistemic")
+    error_axis.plot(x, percent_epistemic, color="#7B3294", linewidth=1.6, label="Epistemic")
     error_axis.plot(
         x,
         percent_nuclear,
-        color="#e377c2",
+        color="#008837",
         linestyle="--",
+        linewidth=1.6,
         label="Nuclear parameters",
     )
-    error_axis.plot(x, percent_total, color="#ff7f0e", label="Total")
+    error_axis.plot(x, percent_total, color="#C51B8A", linewidth=1.6, label="Total")
     error_axis.set_xlabel("Rapidity proxy y")
     error_axis.set_ylabel("Percent error (%)")
     error_axis.set_ylim(0, max(1.2, float(np.max(percent_total)) * 1.12))
