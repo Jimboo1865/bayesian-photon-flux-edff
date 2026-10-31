@@ -80,6 +80,6 @@ python figures/make_fig13_cell39_pdf.py \
 
 - The notebook's physics conventions (Woods–Saxon parameters,
   rapidity-to-photon-energy mapping) are documented in its Parts 2–5.
-- Figure 12's surrogate and EPA lines use offset alternating dashes
-  so both remain visible where they overlap, without relying on
-  colour alone.
+- Figure 12's surrogate line is drawn solid underneath the dashed EPA
+  line, so both remain visible where they overlap, without relying on
+  colour alone; all colours are high-contrast for print.
