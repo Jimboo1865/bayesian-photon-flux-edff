@@ -107,7 +107,6 @@ def main() -> None:
     axis.set_yscale("log")
     axis.yaxis.set_minor_formatter(NullFormatter())
     axis.set_ylabel(r"$N(\omega,b=20\,\mathrm{fm})$ [fm$^{-2}$]")
-    axis.set_title("Separated uncertainty sources")
     axis.legend(loc="lower left")
 
     error_axis.plot(x, percent_epistemic, color="#86269B", linewidth=1.6, label="Epistemic")
@@ -120,7 +119,7 @@ def main() -> None:
         label="Nuclear parameters",
     )
     error_axis.plot(x, percent_total, color="#B0006B", linewidth=1.6, label="Total")
-    error_axis.set_xlabel("Rapidity proxy y")
+    error_axis.set_xlabel(r"Rapidity ($y$)")
     error_axis.set_ylabel("Percent error (%)")
     error_axis.set_ylim(0, max(1.2, float(np.max(percent_total)) * 1.12))
     error_axis.grid(axis="y", linestyle=":", alpha=0.55)
